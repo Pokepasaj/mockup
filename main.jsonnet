@@ -1,4 +1,4 @@
-local k = import 'k8s/k8s-libsonnet/1.32/main.libsonnet';
+local k = import "github.com/jsonnet-libs/k8s-libsonnet/1.32/main.libsonnet";
 
 local appName = "book-review-app";
 local imageTag = "latest";
@@ -33,6 +33,16 @@ local targetPort = 8080;
               ports: [
                 k.core.v1.containerPort {
                   containerPort: containerPort,
+                },
+              ],
+              env: [
+                k.core.v1.envVar {
+                  name: "APP_ENV",
+                  value: "production",
+                },
+                k.core.v1.envVar {
+                  name: "DATABASE_URL",
+                  value: "mysql://db.example.com",
                 },
               ],
             },
