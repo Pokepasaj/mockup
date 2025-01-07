@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    {
+      "name": "k.libsonnet",
+      "source": {
+        "git": {
+          "remote": "https://github.com/ksonnet/ksonnet-lib"
+        }
+      },
+      "version": "master"
+    }
+  ]
+}
