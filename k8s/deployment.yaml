@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-review-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: book-review-app
+  template:
+    metadata:
+      labels:
+        app: book-review-app
+    spec:
+      containers:
+        - name: book-review-app
+          image: book-review-app:latest  
+          ports:
+            - containerPort: 5001
+          imagePullPolicy: IfNotPresent
