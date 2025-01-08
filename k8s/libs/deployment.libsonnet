@@ -22,9 +22,10 @@
               image: p.image,
               ports: [
                 {
-                  containerPort: p.port,
+                  containerPort: p.containerPort,
                 },
               ],
+              imagePullPolicy: 'Never', 
             },
           ],
         },

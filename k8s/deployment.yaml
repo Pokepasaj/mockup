@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: book-review-app
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: book-review-app
@@ -16,5 +16,5 @@ spec:
         - name: book-review-app
           image: book-review-app:latest  
           ports:
-            - containerPort: 5001
-          imagePullPolicy: IfNotPresent
+            - containerPort: 5005
+          imagePullPolicy: Always

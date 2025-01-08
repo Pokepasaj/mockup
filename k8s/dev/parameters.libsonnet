@@ -1,11 +1,20 @@
 {
-    name: "book-review-app",
-    labels: "book-review-app",
-    replicas: 1,
-    image: 'book-review-app:latest',
-    port: 8080,
-    targetPort: 8080,
-    selector: "book-review-app",
-    namespace: 'book-review-app'
-
+  bookApp: {
+    name: 'book-review-app',
+    labels: { app: 'book-review-app' },
+    replicas: 2,
+    image: 'book-review-app',
+    port: 5010,
+    containerPort: 5010,
+    targetPort: 5010,
+    selector: { app: 'book-review-app' },
+    namespace: 'book-review-app',
+    serviceType: 'NodePort',
+    nodePort: 30080,
+    host: 'example.com',
+    path: '/',
+    annotations: { 'nginx.ingress.kubernetes.io/rewrite-target': '/' },
+    serviceName: 'book-review-app',
+    servicePort: 5010,
+  },
 }
