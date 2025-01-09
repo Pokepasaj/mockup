@@ -12,7 +12,7 @@ app.use('/api', reviewRoutes);
 
 // Define a route for the root URL
 app.get('/', (req, res) => {
-  res.send('Welcome to the Book Review App!');
+  res.send('Welcome to the Book Review App! :)');
 });
 
 const PORT = process.env.PORT || 5010;

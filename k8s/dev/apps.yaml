@@ -5,7 +5,7 @@ metadata:
     app: book-review-app
   name: book-review-app
 spec:
-  replicas: 0
+  replicas: 2
   selector:
     matchLabels:
       app: book-review-app
@@ -19,7 +19,15 @@ spec:
           imagePullPolicy: Never
           name: book-review-app
           ports:
-            - containerPort: 5002
+            - containerPort: 5010
+      dnsConfig:
+        nameservers:
+          - 8.8.8.8
+          - 8.8.4.4
+        options:
+          - name: ndots
+            value: '5'
+      dnsPolicy: None
 ---
 apiVersion: v1
 kind: Service
@@ -30,9 +38,9 @@ metadata:
   namespace: book-review-app
 spec:
   ports:
-    - port: 5002
+    - port: 5010
       protocol: TCP
-      targetPort: 5002
+      targetPort: 5010
   selector:
     app: book-review-app
   type: NodePort
@@ -52,7 +60,7 @@ spec:
               service:
                 name: book-review-app
                 port:
-                  number: 5002
+                  number: 5010
             path: /
             pathType: Prefix
 ---

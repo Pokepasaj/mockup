@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pull-image-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: pull-image
+        image: docker:24.0.7
+        command: ["sh", "-c", "docker pull pokepasaj/book-review-app:latest"]
+        volumeMounts:
+        - name: docker-socket
+          mountPath: /var/run/docker.sock
+      restartPolicy: Never
+      volumes:
+      - name: docker-socket
+        hostPath:
+          path: /var/run/docker.sock
+  backoffLimit: 4

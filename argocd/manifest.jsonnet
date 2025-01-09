@@ -5,7 +5,7 @@ local k = import 'k.libsonnet';  // Optional: import a Kubernetes library for he
   kind: 'Application',
   metadata: {
     name: 'argocd-mockup',
-    namespace: 'argocd-mockup',
+    namespace: 'argocd',
   },
   spec: {
     project: 'default',
@@ -13,6 +13,10 @@ local k = import 'k.libsonnet';  // Optional: import a Kubernetes library for he
       repoURL: "https://github.com/Pokepasaj/mockup.git",
       targetRevision: 'main',
       path: 'k8s/dev',
+      directory: {
+        recurse: true,
+        include: "{application/main.jsonnet,configs/**/*.yaml}",
+      },
     },
     destination: {
       server: 'https://kubernetes.default.svc',

@@ -3,7 +3,7 @@
    "kind": "Application",
    "metadata": {
       "name": "argocd-mockup",
-      "namespace": "argocd-mockup"
+      "namespace": "argocd"
    },
    "spec": {
       "destination": {
@@ -12,6 +12,10 @@
       },
       "project": "default",
       "source": {
+         "directory": {
+            "include": "{application/main.jsonnet,configs/**/*.yaml}",
+            "recurse": true
+         },
          "path": "k8s/dev",
          "repoURL": "https://github.com/Pokepasaj/mockup.git",
          "targetRevision": "main"

@@ -28,6 +28,16 @@
               imagePullPolicy: 'Never', 
             },
           ],
+          dnsPolicy: 'None',
+          dnsConfig: {
+            nameservers: [
+              '8.8.8.8',
+              '8.8.4.4',
+            ],
+            options: [
+              { name: 'ndots', value: '5' },
+            ],
+          },
         },
       },
     },
