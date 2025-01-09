@@ -15,7 +15,13 @@ local k = import 'k.libsonnet';  // Optional: import a Kubernetes library for he
       path: 'k8s/dev',
       directory: {
         recurse: true,
-        include: "{application/main.jsonnet,configs/**/*.yaml}",
+        include: "{application/main.jsonnet,configs/**/*.yaml,apps.yaml}",
+        jsonnet: {
+          libs: [
+            '../k8s/easyproject',
+            'vendor/tpv-gitops/lib',
+          ],
+        },
       },
     },
     destination: {

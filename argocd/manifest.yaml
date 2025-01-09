@@ -10,7 +10,11 @@ spec:
   project: default
   source:
     directory:
-      include: '{application/main.jsonnet,configs/**/*.yaml}'
+      include: '{application/main.jsonnet,configs/**/*.yaml,apps.yaml}'
+      jsonnet:
+        libs:
+          - ../k8s/easyproject
+          - vendor/tpv-gitops/lib
       recurse: true
     path: k8s/dev
     repoURL: https://github.com/Pokepasaj/mockup.git
