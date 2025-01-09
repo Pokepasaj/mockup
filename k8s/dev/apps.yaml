@@ -53,7 +53,7 @@ metadata:
   name: book-review-app
 spec:
   rules:
-    - host: example.com
+    - host: localhost
       http:
         paths:
           - backend:

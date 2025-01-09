@@ -87,7 +87,7 @@
       "spec": {
          "rules": [
             {
-               "host": "example.com",
+               "host": "localhost",
                "http": {
                   "paths": [
                      {

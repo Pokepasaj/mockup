@@ -11,7 +11,7 @@
     namespace: 'book-review-app',
     serviceType: 'NodePort',
     nodePort: 30080,
-    host: 'example.com',
+    host: 'localhost', 
     path: '/',
     annotations: { 'nginx.ingress.kubernetes.io/rewrite-target': '/' },
     serviceName: 'book-review-app',
