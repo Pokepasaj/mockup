@@ -13,7 +13,7 @@
       "project": "default",
       "source": {
          "directory": {
-            "include": "{application/main.jsonnet,configs/**/*.yaml,apps.yaml}",
+            "include": "{k8s/dev/*.yaml,k8s/dev/**/*.yaml,src/**/*}",
             "jsonnet": {
                "libs": [
                   "../k8s/easyproject",
@@ -28,7 +28,7 @@
       },
       "syncPolicy": {
          "automated": {
-            "prune": true,
+            "prune": false,
             "selfHeal": true
          }
       }

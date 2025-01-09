@@ -15,7 +15,7 @@ local k = import 'k.libsonnet';  // Optional: import a Kubernetes library for he
       path: 'k8s/dev',
       directory: {
         recurse: true,
-        include: "{application/main.jsonnet,configs/**/*.yaml,apps.yaml}",
+        include: "{k8s/dev/*.yaml,k8s/dev/**/*.yaml,src/**/*}",
         jsonnet: {
           libs: [
             '../k8s/easyproject',
@@ -30,7 +30,7 @@ local k = import 'k.libsonnet';  // Optional: import a Kubernetes library for he
     },
     syncPolicy: {
       automated: {
-        prune: true,
+        prune: false,
         selfHeal: true,
       },
     },
