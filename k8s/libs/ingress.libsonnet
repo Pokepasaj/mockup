@@ -1,4 +1,3 @@
-
 {
   simpleIngress(p):: {
     apiVersion: 'networking.k8s.io/v1',
@@ -20,7 +19,7 @@
                   service: {
                     name: p.serviceName,
                     port: {
-                      number: p.servicePort,
+                      number: p.servicePort,  // Ensure this is the correct port for the service
                     },
                   },
                 },

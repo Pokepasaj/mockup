@@ -1,20 +1,20 @@
 {
-  bookApp: {
+ bookApp: {
     name: 'book-review-app',
     labels: { app: 'book-review-app' },
-    replicas: 2,
-    image: 'book-review-app',
-    port: 5010,
-    containerPort: 5010,
-    targetPort: 5010,
+    replicas: 3,
+    image: 'pokepasaj/book-review-app',
+    port: 8080,
+    containerPort: 8080,
+    targetPort: 443,
     selector: { app: 'book-review-app' },
-    namespace: 'book-review-app',
+    namespace: 'argocd-mockup',
     serviceType: 'NodePort',
-    nodePort: 30080,
-    host: 'localhost', 
+    nodePort: 30080,  // NodePort for external access
+    host: 'localhost',  // Set this to 'localhost' or any external host as needed
     path: '/',
     annotations: { 'nginx.ingress.kubernetes.io/rewrite-target': '/' },
     serviceName: 'book-review-app',
-    servicePort: 5010,
+    servicePort: 8080,
   },
 }

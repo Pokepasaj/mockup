@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-mockup
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/Pokepasaj/mockup.git"
+    targetRevision: main
+    path: ../dev
+    directory:
+      recurse: true
+      jsonnet:
+        libs:
+          - ../libs
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true

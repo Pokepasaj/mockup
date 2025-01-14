@@ -25,7 +25,7 @@
                   containerPort: p.containerPort,
                 },
               ],
-              imagePullPolicy: 'Never', 
+              imagePullPolicy: 'Always', 
             },
           ],
           dnsPolicy: 'None',
