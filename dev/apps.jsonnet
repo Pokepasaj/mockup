@@ -1,7 +1,7 @@
-local EasyProject = import '../easyproject/main.libsonnet';
-local deployment = import '../libs/deployment.libsonnet';
-local service = import '../libs/service.libsonnet';
-local ingress = import '../libs/ingress.libsonnet';
+local EasyProject = import 'k8s/easyproject/main.libsonnet';
+local deployment = import 'k8s/libs/deployment.libsonnet';
+local service = import 'k8s/libs/service.libsonnet';
+local ingress = import 'k8s/libs/ingress.libsonnet';
 local parameters = import './parameters.libsonnet';
 
 // Define features for deployment, service, and ingress
