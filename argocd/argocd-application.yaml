@@ -13,7 +13,7 @@ spec:
       recurse: true
       jsonnet:
         libs:
-          - ../../lib/
+          - lib
   destination:
     server: https://kubernetes.default.svc
     namespace: default
