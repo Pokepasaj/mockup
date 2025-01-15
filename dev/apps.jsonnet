@@ -38,3 +38,4 @@ local app = EasyProject.app(
 
 // Render the application with parameters
 app.render(params=parameters)
+

@@ -2,7 +2,7 @@
  bookApp: {
     name: 'book-review-app',
     labels: { app: 'book-review-app' },
-    replicas: 3,
+    replicas: 1,
     image: 'pokepasaj/book-review-app',
     port: 8080,
     containerPort: 8080,
